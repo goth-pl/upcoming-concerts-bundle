@@ -1,0 +1,39 @@
+<div class="UpcomingConcerts">
+    <div class="UpcomingConcerts__headline">{{ artistName }} Upcoming Concerts</div>
+    {% if concerts|length > 0 %}
+        <div class="UpcomingConcerts__list">
+            {% for concert in concerts %}
+                <div class="UpcomingConcerts__list__item">
+                    <div class="UpcomingConcerts__datetime">
+                        <div class="UpcomingConcerts__date">
+                            {{ concert.startedAt.format('Y-m-d') }}
+                        </div>
+                        <div class="UpcomingConcerts__time">
+                            {{ concert.startedAt.format('H:i:s') }}
+                        </div>
+                    </div>
+
+
+                    <div class="UpcomingConcerts__place">
+                        <div class="UpcomingConcerts__venue">
+                            {{ concert.venue.name }}
+                        </div>
+                        <div class="UpcomingConcerts__city">
+                            {{ concert.venue.city }},
+                            {{ concert.venue.region }},
+                            {{ concert.venue.country }}
+                        </div>
+                    </div>
+
+                    <div class="UpcomingConcerts__more">
+                        <a href="{{ concert.url }}" target="_blank" class="UpcomingConcerts__button">More</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+       <div class="UpcomingConcerts__info">
+           No upcoming concerts
+       </div>
+    {% endif %}
+</div>

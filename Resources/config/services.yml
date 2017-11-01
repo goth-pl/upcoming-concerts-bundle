@@ -1,0 +1,37 @@
+parameters:
+    goth_upcoming_concerts.twig.extension.class: Goth\UpcomingConcertsBundle\Twig\Extension\UpcomingConcertsExtension
+
+    goth_upcoming_concerts.http.class: Goth\UpcomingConcertsBundle\Provider\Http
+    goth_upcoming_concerts.provider.bandsintown.class: Goth\UpcomingConcertsBundle\Provider\BandsintownProvider
+
+    goth_upcoming_concerts.renderer.upcoming_concerts.class: Goth\UpcomingConcertsBundle\Renderer\UpcomingConcertsRenderer
+
+    goth_upcoming_concerts.response_mapper.bandsintown.class: Goth\UpcomingConcertsBundle\ResponseMapper\BandsintownResponseMapper
+
+services:
+#    goth_upcoming_concerts.example:
+#        class: Goth\UpcomingConcertsBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    goth_upcoming_concerts.twig.extension:
+        class: '%goth_upcoming_concerts.twig.extension.class%'
+        arguments: ['@goth_upcoming_concerts.renderer.upcoming_concerts']
+        tags:
+            - { name: twig.extension }
+
+    goth_upcoming_concerts.http:
+        class: '%goth_upcoming_concerts.http.class%'
+
+    goth_upcoming_concerts.provider.bandsintown:
+        class: '%goth_upcoming_concerts.provider.bandsintown.class%'
+        arguments: ['@goth_upcoming_concerts.http', '@goth_upcoming_concerts.response_mapper.bandsintown', '%goth_upcoming_concerts.bandsintown.app_id%']
+        tags:
+            - { name: goth_upcoming_concerts.provider, alias: bandsintown }
+
+    goth_upcoming_concerts.renderer.upcoming_concerts:
+        class: '%goth_upcoming_concerts.renderer.upcoming_concerts.class%'
+        arguments: ['@twig', '%goth_upcoming_concerts.default_provider%']
+
+
+    goth_upcoming_concerts.response_mapper.bandsintown:
+        class: '%goth_upcoming_concerts.response_mapper.bandsintown.class%'

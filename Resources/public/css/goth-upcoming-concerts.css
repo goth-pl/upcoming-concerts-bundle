@@ -1,0 +1,91 @@
+.UpcomingConcerts {
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+.UpcomingConcerts__headline {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.UpcomingConcerts__info {
+    font-size: 12px;
+    color: #9c9c9c;
+    text-align: center;
+}
+
+.UpcomingConcerts__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.UpcomingConcerts__list__item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 20px;
+
+    background-color: #fff;
+
+    font-size: 12px;
+    color: #000;
+}
+
+.UpcomingConcerts__list__item:hover {
+    background-color: #f5f5f5;
+}
+
+.UpcomingConcerts__list__item:not(:last-of-type) {
+    border-bottom: 1px solid #ececec;
+}
+
+.UpcomingConcerts__datetime {
+    margin-right: 20px;
+}
+
+.UpcomingConcerts__date {
+    line-height: 1;
+}
+
+.UpcomingConcerts__time {
+    font-size: 10px;
+    color: #9c9c9c;
+}
+
+.UpcomingConcerts__place {
+    margin-right: 20px;
+}
+
+.UpcomingConcerts__venue {
+    line-height: 1;
+}
+
+.UpcomingConcerts__city {
+    font-size: 10px;
+    color: #9c9c9c;
+}
+
+.UpcomingConcerts__more {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.UpcomingConcerts__button {
+    display: block;
+
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+}
+
+.UpcomingConcerts__button:hover,
+.UpcomingConcerts__button:active,
+.UpcomingConcerts__button:focus {
+    background-color: #2776db;
+    color: #fff;
+    text-decoration: none;
+}
